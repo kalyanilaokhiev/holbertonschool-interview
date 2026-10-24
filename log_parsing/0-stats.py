@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-
 import sys
+""" A script that reads stdin line by line and computes metrics
+    split by status code and file size"""
+
 
 if __name__ == "__main__":
     total_size = 0
@@ -25,19 +27,19 @@ if __name__ == "__main__":
             if len(parts) >= 2:
                 file_size = parts[-1]
                 code = parts[-2]
-                    
-                try: 
+
+                try:
                     # convert file size to int
                     file_size = int(file_size)
-                    total_size += file_size # add to total_size
-        
+                    total_size += file_size  # add to total_size
+
                     # check if the status code is valid in dict
                     if code in status_code:
                         status_code[code] += 1
-        
+
                     # count for the 10 lines
                     line_count += 1
-        
+
                 # if not int or valid status, dont print anything
                 except (ValueError, IndexError):
                     continue
@@ -55,9 +57,9 @@ if __name__ == "__main__":
                 line_count = 0
 
     # Check if there is a keyboard interrupt
-    except KeyboardInterrupt: 
+    except KeyboardInterrupt:
         print("File size: {}".format(total_size))
-        
+
         for i in sorted(status_code.keys()):
             if status_code[i] > 0:
                 print("{}: {}".format(i, status_code[i]))
