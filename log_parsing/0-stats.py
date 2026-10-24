@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-import sys
 """ A script that reads stdin line by line and computes metrics
-    split by status code and file size"""
+    split by status code and file size
+"""
+import sys
 
 
 if __name__ == "__main__":
@@ -53,8 +54,8 @@ if __name__ == "__main__":
                         if status_code[i] > 0:
                             print("{}: {}".format(i, status_code[i]))
 
-                # resart count
-                line_count = 0
+                    # restart count
+                    line_count = 0
 
     # Check if there is a keyboard interrupt
     except KeyboardInterrupt:
