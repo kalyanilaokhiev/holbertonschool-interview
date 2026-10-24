@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
         # printing a end of file
         print("File size: {}".format(total_size))
-        
+
         # printing status code in ascending order
         for i in sorted(status_code.keys()):
             if status_code[i] > 0:
