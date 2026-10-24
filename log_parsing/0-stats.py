@@ -53,9 +53,16 @@ if __name__ == "__main__":
                     for i in sorted(status_code.keys()):
                         if status_code[i] > 0:
                             print("{}: {}".format(i, status_code[i]))
-
                     # restart count
                     line_count = 0
+
+        # printing a end of file
+        print("File size: {}".format(total_size))
+        
+        # printing status code in ascending order
+        for i in sorted(status_code.keys()):
+            if status_code[i] > 0:
+                print("{}: {}".format(i, status_code[i]))
 
     # Check if there is a keyboard interrupt
     except KeyboardInterrupt:
